@@ -11,10 +11,10 @@ class Solution:
             for j in range(len(grid[0])):
                 if grid[i][j] == '1':
                     count += 1
-                    self._DFS(grid, i, j)
+                    self._BFS(grid, i, j)
         return count
 
-    def _DFS(self, grid, i, j):
+    def _BFS(self, grid, i, j):
         queue = Queue()
         queue.put([i, j])
         grid[i][j] = '0'
