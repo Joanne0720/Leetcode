@@ -11,6 +11,10 @@ class Solution:
                 s[i], s[j] = s[j], s[i]
                 i += 1
                 j -= 1
+        “““
+        相当于
+        nums[:k] = nums[:k][::-1]
+        ”””
 
         # 翻转单个单词
         def word_reverse(s):
