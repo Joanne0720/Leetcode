@@ -20,3 +20,8 @@ class Solution(object):
         :type head1, head1: ListNode
         :rtype: ListNode
         """
+        pA, pB = headA, headB
+        while pA != pB:
+            pA = pA.next if pA else headB
+            pB = pB.next if pB else headA
+        return pA
