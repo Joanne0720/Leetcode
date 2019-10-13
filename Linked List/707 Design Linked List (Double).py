@@ -85,16 +85,17 @@ class MyLinkedList:
                 self.head.next.prev = None
             self.head = self.head.next
             return
-        cur = self.head
-        for _ in range(index):
-            if cur.next:
-                cur = cur.next
+        pre = self.head
+        for _ in range(index-1):
+            if pre.next:
+                pre = pre.next
             else:
                 return
         # 删除最后一个节点
-        cur.prev.next = cur.next
-        if cur.next:
-            cur.next.prev = cur.prev
+        if pre.next:
+            pre.next = pre.next.next
+            if pre.next:
+                pre.next.prev = pre
 
 # Your MyLinkedList object will be instantiated and called as such:
 # obj = MyLinkedList()
@@ -103,6 +104,3 @@ class MyLinkedList:
 # obj.addAtTail(val)
 # obj.addAtIndex(index,val)
 # obj.deleteAtIndex(index)
-
-["MyLinkedList","addAtHead","addAtHead","deleteAtIndex","addAtIndex","addAtHead","addAtHead","addAtHead","get","addAtTail","addAtIndex","addAtHead"]
-[[],[5],[2],[1],[1,9],[4],[9],[8],[3],[1],[3,6],[3]]
