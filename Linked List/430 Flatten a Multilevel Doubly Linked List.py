@@ -8,18 +8,19 @@ class Node:
         self.child = child
 """
 
-
 class Solution:
     def flatten(self, head: 'Node') -> 'Node':
-        childhead, cur = head, head
+        cur = head
         while cur:
             if cur.child:
-                nxt = cur.next
-                cur.next, childtail = self.flatten(cur.child)
+                _nxt = cur.next
+                cur.next = self.flatten(cur.child)
                 cur.next.prev = cur
                 cur.child = None
-                childtail.next, nxt.prev = nxt, childtail
-                cur = nxt
-            else:
-                cur = cur.next
-        return childhead, cur.prev
+                while cur.next:
+                    cur = cur.next
+                cur.next = _nxt
+                if _nxt:
+                    _nxt.prev = cur
+            cur = cur.next
+        return head
