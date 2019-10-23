@@ -4,11 +4,13 @@
 在存储数据的过程中，如果发生冲突，可以利用链表在已有数据的后面插入新数据 来解决冲突。这种方法被称为“链地址法”
 """
 
+
 class Node:
 
     def __init__(self, val, node):
         self.val = val
         self.next = node
+
 
 class MyHashSet:
 
