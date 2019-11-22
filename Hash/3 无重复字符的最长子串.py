@@ -1,4 +1,4 @@
-# 滑动窗口，从字典里找下一个窗口的start。
+# 滑动窗口，从字典里找下一个窗口的start
 
 
 class Solution:
